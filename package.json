@@ -5,8 +5,9 @@
   "scripts": {
     "clean": "rimraf build/",
     "dev": "next dev",
-    "build": "npm run clean && next build && next export",
+    "build": "next build",
     "start": "next start",
+    "export": "npm run clean && next build && next export",
     "predeploy": "npm run clean && next build && next export"
   },
   "dependencies": {
