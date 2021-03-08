@@ -7,7 +7,7 @@
     "build": "next build && next export",
     "start": "next start",
     "predeploy": "npm run clean && npm run build",
-    "build-page": "next build && next export && git subtree push --prefix out origin pages"
+    "build-page": "git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
