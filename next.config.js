@@ -6,8 +6,8 @@ module.exports = {
   assetPrefix: '/next-contentful/out/',
   // assetPrefix: !debug ? '/next-contentful/out/' : '',
   env: {
-    REACT_APP_CONTENTFUL_SPACE_ID: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    REACT_APP_CONTENTFUL_ACCESS_TOKEN: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
+    REACT_APP_CONTENTFUL_SPACE_ID: process.env.REACT_APP_CONTENTFUL_SPACE_ID || process.env.CONTENTFUL_SPACE_ID,
+    REACT_APP_CONTENTFUL_ACCESS_TOKEN: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN || process.env.CONTENTFUL_ACCESS_TOKEN,
   },
   exportPathMap: async function (
     defaultPathMap,
