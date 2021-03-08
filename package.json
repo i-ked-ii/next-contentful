@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rimraf build/",
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "npm run clean && next build && next export",
     "start": "next start",
     "predeploy": "npm run clean && next build && next export"
   },
@@ -19,6 +20,7 @@
     "react-dom": "17.0.1",
     "react-markdown": "^5.0.3",
     "react-share": "^4.4.0",
+    "rimraf": "^3.0.2",
     "sass": "^1.32.8"
   }
 }

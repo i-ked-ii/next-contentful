@@ -30,7 +30,7 @@ export default function Index({ posts, category }) {
           {
             category?.map(({fields}, index) => (
                 <li className="nav-item" key={index}>
-                  <a className="nav-link active" href={`categories/${fields.category}`}>
+                  <a className="nav-link active" href={`/categories/${fields.category}`}>
                     {fields.category}
                   </a>
                 </li>
