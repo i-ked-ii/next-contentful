@@ -9,8 +9,6 @@
     "predeploy": "npm run clean && next build && next export"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^14.1.2",
-    "@contentful/rich-text-types": "^14.1.2",
     "babel-preset-env": "^1.7.0",
     "bootstrap": "^4.6.0",
     "clsx": "^1.1.1",
