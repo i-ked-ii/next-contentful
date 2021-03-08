@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   distDir: 'build',
-  // basePath: '/static',
+  basePath: '/next-contentful/out/',
   assetPrefix: '/next-contentful/out/',
   // assetPrefix: !debug ? '/next-contentful/out/' : '',
   env: {
