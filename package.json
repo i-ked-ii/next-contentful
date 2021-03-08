@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "predeploy": "npm run clean && next build && next export"
+    "predeploy": "npm run clean && npm run build"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
