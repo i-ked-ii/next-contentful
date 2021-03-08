@@ -25,7 +25,7 @@ export default function Index({ posts, category }) {
           {/* you can delete this component or you can use this for your page header. */}
           <ul className="nav justify-content-center">
             <li className="nav-item">
-              <a className="nav-link" href="#">All</a>
+              <a className="nav-link" href={`/category`}>All</a>
             </li>
           {
             category?.map(({fields}, index) => (
