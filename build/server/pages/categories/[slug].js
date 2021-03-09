@@ -1962,7 +1962,7 @@ let detectDomainLocale;
 
 if (false) {}
 
-const basePath =  false || '';
+const basePath = "/next-contentful" || false;
 
 function buildCancellationError() {
   return Object.assign(new Error('Route Cancelled'), {
