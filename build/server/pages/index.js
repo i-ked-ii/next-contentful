@@ -828,7 +828,7 @@ function Index({
         }, index) => /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("li", {
           className: "jsx-1345616107" + " " + "nav-item",
           children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-            href: `/categories/${fields.category}`,
+            href: `./categories/${fields.category}`,
             className: "jsx-1345616107" + " " + "nav-link active",
             children: fields.category
           })
