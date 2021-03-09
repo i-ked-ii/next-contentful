@@ -1,4 +1,5 @@
-// import { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
+import Link from "next/link";
 import Post from "../components/Post";
 import Layout from "../components/Layouts";
 // import PageHeader from "components/PageHeader";
@@ -13,7 +14,10 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Index({ posts, category }) {
-  console.log('category', posts, category)
+  // console.log('category', posts, category)
+  const router = useRouter();
+
+
   return (
     <Layout title="Blog with Next.js and Contentful">
       {/* <Layout
@@ -25,14 +29,32 @@ export default function Index({ posts, category }) {
         {/* you can delete this component or you can use this for your page header. */}
         <ul className="nav justify-content-center">
           <li className="nav-item">
-            <a className="nav-link" href={`./category`}>All</a>
+
+            <Link href={{
+              pathname: `/categories`,
+              // query: { slug: 'categories' }
+              // ,
+            }}
+              as={`/categories`}
+            >
+              <a className="nav-link">All</a>
+            </Link>
           </li>
           {
             category?.map(({ fields }, index) => (
               <li className="nav-item" key={index}>
-                <a className="nav-link active" href={`./categories/${fields.category}`}>
-                  {fields.category}
-                </a>
+                <Link
+
+                  href={{
+                    pathname: `/categories/${fields.category}`,
+                    // query: { slug: 'categories' }
+                    // ,
+                  }}
+
+
+                >
+                  <a className={router.pathname == `/categories/${fields.category}` ? "nav-link active" : "nav-link"}>{fields.category}</a>
+                </Link>
               </li>
               // <li className="nav-item">
               //   <a className="nav-link disabled" href="#">Disabled</a>

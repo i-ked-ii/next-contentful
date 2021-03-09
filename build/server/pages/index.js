@@ -780,13 +780,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("HJQg");
 /* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("YyTP");
-/* harmony import */ var _components_Layouts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFra");
-/* harmony import */ var _lib_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("mwqp");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("4Q3z");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFqc");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Post__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("YyTP");
+/* harmony import */ var _components_Layouts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("YFra");
+/* harmony import */ var _lib_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("mwqp");
 
 
 
-// import { useRouter } from 'next/router'
+
+
 
  // import PageHeader from "components/PageHeader";
 
@@ -794,7 +799,7 @@ __webpack_require__.r(__webpack_exports__);
 async function getStaticProps({
   params
 }) {
-  const posts = await Object(_lib_index__WEBPACK_IMPORTED_MODULE_4__[/* getAllPosts */ "a"])(); // const post2 = posts.filter(post => post.fields.category 'wcommerce'));
+  const posts = await Object(_lib_index__WEBPACK_IMPORTED_MODULE_6__[/* getAllPosts */ "a"])(); // const post2 = posts.filter(post => post.fields.category 'wcommerce'));
 
   const category = [...new Map(posts.map(item => [item.fields.category, item])).values()];
   return {
@@ -809,8 +814,9 @@ function Index({
   posts,
   category
 }) {
-  console.log('category', posts, category);
-  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_components_Layouts__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"], {
+  // console.log('category', posts, category)
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
+  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_components_Layouts__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
     title: "Blog with Next.js and Contentful",
     children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("div", {
       className: "jsx-1345616107" + " " + "container-lg py-4",
@@ -818,19 +824,32 @@ function Index({
         className: "jsx-1345616107" + " " + "nav justify-content-center",
         children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("li", {
           className: "jsx-1345616107" + " " + "nav-item",
-          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-            href: `./category`,
-            className: "jsx-1345616107" + " " + "nav-link",
-            children: "All"
+          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+            href: {
+              pathname: `/categories` // query: { slug: 'categories' }
+              // ,
+
+            },
+            as: `/categories`,
+            children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
+              className: "jsx-1345616107" + " " + "nav-link",
+              children: "All"
+            })
           })
         }), category === null || category === void 0 ? void 0 : category.map(({
           fields
         }, index) => /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("li", {
           className: "jsx-1345616107" + " " + "nav-item",
-          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-            href: `./categories/${fields.category}`,
-            className: "jsx-1345616107" + " " + "nav-link active",
-            children: fields.category
+          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+            href: {
+              pathname: `/categories/${fields.category}` // query: { slug: 'categories' }
+              // ,
+
+            },
+            children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
+              className: "jsx-1345616107" + " " + ((router.pathname == `/categories/${fields.category}` ? "nav-link active" : "nav-link") || ""),
+              children: fields.category
+            })
           })
         }, index) // <li className="nav-item">
         //   <a className="nav-link disabled" href="#">Disabled</a>
@@ -841,7 +860,7 @@ function Index({
         children: posts === null || posts === void 0 ? void 0 : posts.map(({
           fields
         }, index) => {
-          return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_components_Post__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], {
+          return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_components_Post__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"], {
             title: fields.title,
             author: fields.author,
             date: fields.publishDate,
