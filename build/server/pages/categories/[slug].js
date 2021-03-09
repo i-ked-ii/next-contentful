@@ -835,7 +835,7 @@ function Categories({
         children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("li", {
           className: "jsx-1345616107" + " " + "nav-item",
           children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-            href: "/",
+            href: `./category`,
             className: "jsx-1345616107" + " " + "nav-link",
             children: "All"
           })
@@ -844,7 +844,7 @@ function Categories({
         }, index) => /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("li", {
           className: "jsx-1345616107" + " " + "nav-item",
           children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-            href: fields.category,
+            href: `./${fields.category}`,
             className: "jsx-1345616107" + " " + "nav-link active",
             children: fields.category
           })

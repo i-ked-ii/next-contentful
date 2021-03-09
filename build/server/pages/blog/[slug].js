@@ -745,20 +745,14 @@ const BlogHeader = ({
 };
 
 /* harmony default export */ var components_BlogHeader = (BlogHeader);
-// EXTERNAL MODULE: external "@contentful/rich-text-react-renderer"
-var rich_text_react_renderer_ = __webpack_require__("rdzP");
-
-// EXTERNAL MODULE: external "@contentful/rich-text-types"
-var rich_text_types_ = __webpack_require__("P1b7");
-
 // EXTERNAL MODULE: external "react-markdown"
 var external_react_markdown_ = __webpack_require__("id0+");
 var external_react_markdown_default = /*#__PURE__*/__webpack_require__.n(external_react_markdown_);
 
 // CONCATENATED MODULE: ./components/BlogBody/index.js
 
-
-
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+// import { BLOCKS, INLINES } from "@contentful/rich-text-types";
  // import { Container, Grid } from "@material-ui/core";
 // import { makeStyles } from "@material-ui/core/styles";
 // const useStyles = makeStyles((theme) => ({
@@ -790,39 +784,29 @@ const BlogBody = ({
   content
 }) => {
   // const classes = useStyles();
-  const options = {
-    renderNode: {
-      [rich_text_types_["BLOCKS"].EMBEDDED_ASSET]: node => {
-        const {
-          url,
-          fileName
-        } = node.data.target.fields.file;
-        return /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: url,
-          alt: fileName,
-          style: {
-            height: "auto",
-            width: "100%",
-            margin: "1em 0"
-          }
-        });
-      },
-      [rich_text_types_["INLINES"].HYPERLINK]: node => {
-        const {
-          uri
-        } = node.data;
-        const {
-          value
-        } = node.content[0];
-        return /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-          target: "_blank",
-          rel: "noreferrer noopener",
-          href: uri,
-          children: value
-        });
-      }
-    }
-  };
+  // const options = {
+  //   renderNode: {
+  //     [BLOCKS.EMBEDDED_ASSET]: (node) => {
+  //       const { url, fileName } = node.data.target.fields.file;
+  //       return (
+  //         <img
+  //           src={url}
+  //           alt={fileName}
+  //           style={{ height: "auto", width: "100%", margin: "1em 0" }}
+  //         />
+  //       );
+  //     },
+  //     [INLINES.HYPERLINK]: (node) => {
+  //       const { uri } = node.data;
+  //       const { value } = node.content[0];
+  //       return (
+  //         <a target="_blank" rel="noreferrer noopener" href={uri}>
+  //           {value}
+  //         </a>
+  //       );
+  //     },
+  //   },
+  // };
   return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
     className: "container",
     children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_react_markdown_default.a, {
@@ -1309,13 +1293,6 @@ exports.default = _default;
 /***/ (function(module, exports) {
 
 module.exports = require("next/dist/next-server/lib/router-context.js");
-
-/***/ }),
-
-/***/ "P1b7":
-/***/ (function(module, exports) {
-
-module.exports = require("@contentful/rich-text-types");
 
 /***/ }),
 
@@ -3792,13 +3769,6 @@ function makePublicRouterInstance(router) {
   });
   return instance;
 }
-
-/***/ }),
-
-/***/ "rdzP":
-/***/ (function(module, exports) {
-
-module.exports = require("@contentful/rich-text-react-renderer");
 
 /***/ }),
 
