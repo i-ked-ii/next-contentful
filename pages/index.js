@@ -21,48 +21,49 @@ export default function Index({ posts, category }) {
         title="Blog with Next.js and Contentful"
         description="This is a Blog Demo with Next.js and Contentful. You can see the code in github. And you can use the code to make your own blog. "
       > */}
-        <div className="container-lg py-4">
-          {/* you can delete this component or you can use this for your page header. */}
-          <ul className="nav justify-content-center">
-            <li className="nav-item">
-              <a className="nav-link" href={`./category`}>All</a>
-            </li>
+      <div className="container-lg py-4">
+        {/* you can delete this component or you can use this for your page header. */}
+        <ul className="nav justify-content-center">
+          <li className="nav-item">
+            <a className="nav-link" href={`./category`}>All</a>
+          </li>
           {
-            category?.map(({fields}, index) => (
-                <li className="nav-item" key={index}>
-                  <a className="nav-link active" href={`./categories/${fields.category}`}>
-                    {fields.category}
-                  </a>
-                </li>
-                // <li className="nav-item">
-                //   <a className="nav-link disabled" href="#">Disabled</a>
-                // </li>
+            category?.map(({ fields }, index) => (
+              <li className="nav-item" key={index}>
+                <a className="nav-link active" href={`/categories/${fields.category}`}>
+                  {fields.category}
+                </a>
+              </li>
+              // <li className="nav-item">
+              //   <a className="nav-link disabled" href="#">Disabled</a>
+              // </li>
             ))
           }
-          </ul>
-          {/* <PageHeader /> */}
-          {/* blog post */}
-          <div className="card-deck flex-wrap">
-            {posts?.map(({fields}, index) => {
-              return (
-                <Post
-                  key={index}
-                  title={fields.title}
-                  author={fields.author}
-                  date={fields.publishDate}
-                  description={fields.description}
-                  slug={fields.slug}
-                  coverImage={fields.heroImage.fields}
-                />
-            )})}
-          </div>
-          <style jsx>{`
+        </ul>
+        {/* <PageHeader /> */}
+        {/* blog post */}
+        <div className="card-deck flex-wrap">
+          {posts?.map(({ fields }, index) => {
+            return (
+              <Post
+                key={index}
+                title={fields.title}
+                author={fields.author}
+                date={fields.publishDate}
+                description={fields.description}
+                slug={fields.slug}
+                coverImage={fields.heroImage.fields}
+              />
+            )
+          })}
+        </div>
+        <style jsx>{`
             .card-deck .card {
               display: flex;
               flex: 1 0 auto;
             }
           `}</style>
-        </div>
+      </div>
       {/* </Layout> */}
     </Layout>
   );
