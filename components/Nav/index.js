@@ -7,7 +7,7 @@ export default function Nav() {
             <div className="container-lg">
                 <Link
                     href={{
-                        pathname: `./`,
+                        pathname: `${process.env.REACT_APP_BASE_PATH}/`,
                     }}
                 >
                     <a className="navbar-brand">Navbar</a>
@@ -22,7 +22,7 @@ export default function Nav() {
                         <li className="nav-item">
                             <Link
                                 href={{
-                                    pathname: `./`,
+                                    pathname: `${process.env.REACT_APP_BASE_PATH}/`,
                                 }}
                             >
                                 <a className="nav-link">Home <span className="sr-only">(current)</span></a>
@@ -31,7 +31,7 @@ export default function Nav() {
                         <li className="nav-item">
                             <Link
                                 href={{
-                                    pathname: `./contents`,
+                                    pathname: `${process.env.REACT_APP_BASE_PATH}/contents`,
                                 }}
                             >
                                 <a className="nav-link" >Contents <span className="sr-only">(current)</span></a>
@@ -40,7 +40,7 @@ export default function Nav() {
                         <li className="nav-item">
                             <Link
                                 href={{
-                                    pathname: `./contact`,
+                                    pathname: `${process.env.REACT_APP_BASE_PATH}/contact`,
                                 }}
                             >
                                 <a className="nav-link" >Contact Us <span className="sr-only">(current)</span></a>
