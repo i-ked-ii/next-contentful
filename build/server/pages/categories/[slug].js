@@ -1307,15 +1307,21 @@ const Footer = () => {
 // CONCATENATED MODULE: ./components/Nav/index.js
 
 
+
+
 function Nav() {
   return /*#__PURE__*/Object(jsx_runtime_["jsx"])("nav", {
     className: "navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-custom",
     children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
       className: "container-lg",
-      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-        className: "navbar-brand",
-        href: "/",
-        children: "Navbar"
+      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+        href: {
+          pathname: `/`
+        },
+        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+          className: "navbar-brand",
+          children: "Navbar"
+        })
       }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("button", {
         className: "navbar-toggler",
         type: "button",
@@ -1336,27 +1342,45 @@ function Nav() {
           class: "nav navbar-nav navbar-right",
           children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
             className: "nav-item",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
-              className: "nav-link",
-              href: "/",
-              children: ["Home ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
-                className: "sr-only",
-                children: "(current)"
-              })]
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+              href: {
+                pathname: `/`
+              },
+              children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
+                className: "nav-link",
+                children: ["Home ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
+                  className: "sr-only",
+                  children: "(current)"
+                })]
+              })
             })
           }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
             className: "nav-item",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-              className: "nav-link",
-              href: "/contents",
-              children: "Content"
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+              href: {
+                pathname: `/contents`
+              },
+              children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
+                className: "nav-link",
+                children: ["Contents ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
+                  className: "sr-only",
+                  children: "(current)"
+                })]
+              })
             })
           }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
             className: "nav-item",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-              className: "nav-link",
-              href: "/contact",
-              children: "Contact Us"
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+              href: {
+                pathname: `/contact`
+              },
+              children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
+                className: "nav-link",
+                children: ["Contact Us ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
+                  className: "sr-only",
+                  children: "(current)"
+                })]
+              })
             })
           })]
         })]
