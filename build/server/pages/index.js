@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -329,14 +329,6 @@ module.exports = require("next/router");
 
 /***/ }),
 
-/***/ 5:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("RNiq");
-
-
-/***/ }),
-
 /***/ "5NG/":
 /***/ (function(module, exports) {
 
@@ -472,6 +464,14 @@ function formatUrl(urlObj) {
   search = search.replace('#', '%23');
   return `${protocol}${host}${pathname}${search}${hash}`;
 }
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("RNiq");
+
 
 /***/ }),
 
@@ -773,94 +773,158 @@ module.exports = require("next/dist/next-server/lib/router-context.js");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticProps", function() { return getStaticProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("HJQg");
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("4Q3z");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFqc");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_Post__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("YyTP");
-/* harmony import */ var _components_Layouts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("YFra");
-/* harmony import */ var _lib_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("mwqp");
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "getStaticProps", function() { return /* binding */ getStaticProps; });
+__webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ Index; });
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__("F5FC");
+
+// EXTERNAL MODULE: external "styled-jsx/style"
+var style_ = __webpack_require__("HJQg");
+var style_default = /*#__PURE__*/__webpack_require__.n(style_);
+
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__("4Q3z");
+
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__("YFqc");
+
+// EXTERNAL MODULE: ./components/Post/index.js + 1 modules
+var Post = __webpack_require__("YyTP");
+
+// EXTERNAL MODULE: ./components/Layouts/index.js + 4 modules
+var Layouts = __webpack_require__("YFra");
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__("cDcd");
+
+// EXTERNAL MODULE: external "reactstrap"
+var external_reactstrap_ = __webpack_require__("oL/c");
+
+// CONCATENATED MODULE: ./components/Slide/index.js
+
+
+
+
+
+const Example = props => {
+  const items = props.data;
+  const {
+    0: activeIndex,
+    1: setActiveIndex
+  } = Object(external_react_["useState"])(0);
+  const {
+    0: animating,
+    1: setAnimating
+  } = Object(external_react_["useState"])(false);
+
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = newIndex => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
+  let slides = props.data.map(({
+    fields
+  }, index) => {
+    return /*#__PURE__*/Object(jsx_runtime_["jsxs"])(external_reactstrap_["CarouselItem"], {
+      onExiting: () => setAnimating(true),
+      onExited: () => setAnimating(false),
+      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+        src: fields.heroImage.fields.file.url,
+        alt: fields.title
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_reactstrap_["CarouselCaption"], {
+        captionText: fields.description,
+        captionHeader: fields.title
+      })]
+    }, index);
+  });
+  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])(external_reactstrap_["Carousel"], {
+    activeIndex: activeIndex,
+    next: next,
+    previous: previous,
+    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(external_reactstrap_["CarouselIndicators"], {
+      items: props.data,
+      activeIndex: activeIndex,
+      onClickHandler: goToIndex
+    }), slides, /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_reactstrap_["CarouselControl"], {
+      direction: "prev",
+      directionText: "Previous",
+      onClickHandler: previous
+    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_reactstrap_["CarouselControl"], {
+      direction: "next",
+      directionText: "Next",
+      onClickHandler: next
+    })]
+  });
+};
+
+/* harmony default export */ var Slide = (Example);
+// EXTERNAL MODULE: ./lib/index.js
+var lib = __webpack_require__("mwqp");
+
+// CONCATENATED MODULE: ./pages/index.js
 
 
 
 
 
 
- // import PageHeader from "components/PageHeader";
+
+
 
 
 async function getStaticProps({
   params
 }) {
-  const posts = await Object(_lib_index__WEBPACK_IMPORTED_MODULE_6__[/* getAllPosts */ "a"])(); // const post2 = posts.filter(post => post.fields.category 'wcommerce'));
-
-  const category = [...new Map(posts.map(item => [item.fields.category, item])).values()];
+  const posts = await Object(lib["a" /* getAllPosts */])();
+  const slide = await Object(lib["c" /* getAllSlider */])();
   return {
     revalidate: 1,
     props: {
       posts,
-      category
+      slide
     }
   };
 }
 function Index({
   posts,
-  category
+  slide
 }) {
-  // console.log('category', posts, category)
-  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
-  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_components_Layouts__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
+  const router = Object(router_["useRouter"])();
+  console.log('slide==>', slide);
+  console.log('posts==>', posts);
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])(Layouts["a" /* default */], {
     title: "Blog with Next.js and Contentful",
-    children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("div", {
+    children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
       className: "jsx-1345616107" + " " + "container-lg py-4",
-      children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("ul", {
-        className: "jsx-1345616107" + " " + "nav justify-content-center",
-        children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("li", {
-          className: "jsx-1345616107" + " " + "nav-item",
-          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-            href: {
-              pathname: `/categories` // query: { slug: 'categories' }
-              // ,
-
-            },
-            as: `/categories`,
-            children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-              className: "jsx-1345616107" + " " + "nav-link",
-              children: "All"
-            })
-          })
-        }), category === null || category === void 0 ? void 0 : category.map(({
-          fields
-        }, index) => /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("li", {
-          className: "jsx-1345616107" + " " + "nav-item",
-          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-            href: {
-              pathname: `/categories/${fields.category}` // query: { slug: 'categories' }
-              // ,
-
-            },
-            children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-              className: "jsx-1345616107" + " " + ((router.pathname == `/categories/${fields.category}` ? "nav-link active" : "nav-link") || ""),
-              children: fields.category
-            })
-          })
-        }, index) // <li className="nav-item">
-        //   <a className="nav-link disabled" href="#">Disabled</a>
-        // </li>
-        )]
-      }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
+      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(Slide, {
+        className: "mt-5",
+        data: slide
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
+        className: "jsx-1345616107" + " " + "mt-5 mb-5",
+        children: "Lasted Content"
+      }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
         className: "jsx-1345616107" + " " + "card-deck flex-wrap",
-        children: posts === null || posts === void 0 ? void 0 : posts.map(({
+        children: [posts === null || posts === void 0 ? void 0 : posts.slice(0, 5).map(({
           fields
         }, index) => {
-          return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_components_Post__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"], {
+          return /*#__PURE__*/Object(jsx_runtime_["jsx"])(Post["a" /* default */], {
             title: fields.title,
             author: fields.author,
             date: fields.publishDate,
@@ -868,8 +932,8 @@ function Index({
             slug: fields.slug,
             coverImage: fields.heroImage.fields
           }, index);
-        })
-      }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        }), posts.length > 6 ? /*#__PURE__*/Object(jsx_runtime_["jsx"])(jsx_runtime_["Fragment"], {}) : /*#__PURE__*/Object(jsx_runtime_["jsx"])(jsx_runtime_["Fragment"], {})]
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(style_default.a, {
         id: "1345616107",
         children: [".card-deck.jsx-1345616107 .card.jsx-1345616107{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;}"]
       })]
@@ -1070,51 +1134,6 @@ const Footer = () => {
   return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("footer", {
     className: "jsx-751761162" + " " + "main-footer mt-4",
     children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-      className: "jsx-751761162" + " " + "bg-gray-100 text-dark-700 py-6",
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "jsx-751761162" + " " + "container",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-          className: "jsx-751761162" + " " + "row",
-          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "jsx-751761162" + " " + "service-column col-lg-4",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-              className: "jsx-751761162" + " " + "service-text",
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h6", {
-                className: "jsx-751761162" + " " + "text-uppercase",
-                children: "Free shipping & return"
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-                className: "jsx-751761162" + " " + "text-muted font-weight-light text-sm mb-0",
-                children: "Free Shipping over $300"
-              })]
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "jsx-751761162" + " " + "service-column col-lg-4",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-              className: "jsx-751761162" + " " + "service-text",
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h6", {
-                className: "jsx-751761162" + " " + "text-uppercase",
-                children: "Money back guarantee"
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-                className: "jsx-751761162" + " " + "text-muted font-weight-light text-sm mb-0",
-                children: "30 Days Money Back Guarantee"
-              })]
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "jsx-751761162" + " " + "service-column col-lg-4",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-              className: "jsx-751761162" + " " + "service-text",
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h6", {
-                className: "jsx-751761162" + " " + "text-uppercase",
-                children: "020-800-456-747"
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-                className: "jsx-751761162" + " " + "text-muted font-weight-light text-sm mb-0",
-                children: "24/7 Available Support"
-              })]
-            })
-          })]
-        })
-      })
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
       className: "jsx-751761162" + " " + "py-6 bg-gray-300 text-muted",
       children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
         className: "jsx-751761162" + " " + "container",
@@ -1330,6 +1349,67 @@ const Footer = () => {
 };
 
 /* harmony default export */ var components_Footer = (Footer);
+// CONCATENATED MODULE: ./components/Nav/index.js
+
+
+function Nav() {
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("nav", {
+    className: "navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-custom",
+    children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+      className: "container-lg",
+      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+        className: "navbar-brand",
+        href: "/",
+        children: "Navbar"
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("button", {
+        className: "navbar-toggler",
+        type: "button",
+        "data-toggle": "collapse",
+        "data-target": "#navbarNav",
+        "aria-controls": "navbarNav",
+        "aria-expanded": "false",
+        "aria-label": "Toggle navigation",
+        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
+          className: "navbar-toggler-icon"
+        })
+      }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+        className: "collapse navbar-collapse",
+        id: "navbarNav",
+        children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("ul", {
+          className: "navbar-nav mr-auto mt-2 mt-lg-0"
+        }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("ul", {
+          class: "nav navbar-nav navbar-right",
+          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
+            className: "nav-item",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
+              className: "nav-link",
+              href: "/",
+              children: ["Home ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
+                className: "sr-only",
+                children: "(current)"
+              })]
+            })
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
+            className: "nav-item",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+              className: "nav-link",
+              href: "/contents",
+              children: "Content"
+            })
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
+            className: "nav-item",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+              className: "nav-link",
+              href: "/contact",
+              children: "Contact Us"
+            })
+          })]
+        })]
+      })]
+    })
+  });
+}
+;
 // EXTERNAL MODULE: external "next/head"
 var head_ = __webpack_require__("xnum");
 var head_default = /*#__PURE__*/__webpack_require__.n(head_);
@@ -1340,6 +1420,7 @@ var head_default = /*#__PURE__*/__webpack_require__.n(head_);
 
 
 // import Header from "../Header";
+
 
 
 
@@ -1381,9 +1462,9 @@ const LayoutComponents = ({
         property: "og:description",
         content: description ? description : "This is a statically generated blog example using Next.js and Contentful.",
         className: "jsx-3591538689"
-      }, "og:description")]
+      }, "og:description"), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Nav, {})]
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("main", {
-      className: "jsx-3591538689",
+      className: "jsx-3591538689" + " " + "mt-5",
       children: children
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_Footer, {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])(style_default.a, {
       id: "3591538689",
@@ -1532,16 +1613,16 @@ __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding *
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__("F5FC");
 
-// EXTERNAL MODULE: external "styled-jsx/style"
-var style_ = __webpack_require__("HJQg");
-var style_default = /*#__PURE__*/__webpack_require__.n(style_);
-
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__("cDcd");
 
 // EXTERNAL MODULE: external "react-markdown"
 var external_react_markdown_ = __webpack_require__("id0+");
 var external_react_markdown_default = /*#__PURE__*/__webpack_require__.n(external_react_markdown_);
+
+// EXTERNAL MODULE: external "styled-jsx/style"
+var style_ = __webpack_require__("HJQg");
+var style_default = /*#__PURE__*/__webpack_require__.n(style_);
 
 // CONCATENATED MODULE: ./components/Author/index.js
 
@@ -1585,7 +1666,6 @@ var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 
 
 
-
 function Post({
   title,
   subtitle,
@@ -1599,45 +1679,39 @@ function Post({
   coverImage
 }) {
   // export default function Post({ post }) {
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-    className: "jsx-1534463630" + " " + "col-md-6 col-lg-4 mb-4",
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+    className: "col-md-6 col-lg-4 mb-4",
+    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
       href: `/blog/${slug}`,
       children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-        className: "jsx-1534463630",
         children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-          className: "jsx-1534463630" + " " + "card h-100",
+          className: "card h-100",
           children: [coverImage && /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
             src: coverImage.file.url,
-            alt: "",
-            className: "jsx-1534463630" + " " + "card-img-top"
+            className: "card-img-top",
+            alt: ""
           }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-            className: "jsx-1534463630" + " " + "card-body",
+            className: "card-body",
             children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h5", {
-              className: "jsx-1534463630" + " " + "card-title",
+              className: "card-title",
               children: title
             }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-              className: "jsx-1534463630" + " " + "card-text",
+              className: "card-text",
               children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_react_markdown_default.a, {
-                source: description,
+                source: description.substring(0, 150),
                 escapeHtml: true
               })
-            }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Author, {
-              author: author
             })]
           }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "jsx-1534463630" + " " + "card-footer",
+            className: "card-footer",
             children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("small", {
-              className: "jsx-1534463630" + " " + "text-muted",
+              className: "text-muted",
               children: ["Published: ", external_moment_default()(date).format("MMMM Do YYYY")]
             })
           })]
         })
       })
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(style_default.a, {
-      id: "1534463630",
-      children: ["header.jsx-1534463630{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid #949499;}", "header.jsx-1534463630 h1.jsx-1534463630{font-size:3rem;margin-bottom:1rem;}", "section.jsx-1534463630 h1{font-size:2.5rem;margin-bottom:1rem;}", "section.jsx-1534463630 h2{font-size:2rem;margin-bottom:1rem;}", "section.jsx-1534463630 p{line-height:1.75rem;margin:2rem 0;}", "section.jsx-1534463630 img{max-width:100%;}", "section.jsx-1534463630 blockquote{border-left:0.5rem solid #949499;margin-left:0;padding:0 2rem;color:#646469;}", "section.jsx-1534463630 li{margin:1rem 0;line-height:1.5rem;}", "section.jsx-1534463630 hr{border:none;background:#949499;height:1px;}"]
-    })]
+    })
   });
 }
 
@@ -3216,10 +3290,11 @@ module.exports = require("react-markdown");
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getAllPosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getPostsByCategory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getPostBySlug; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getMorePosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getPostsByCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getPostBySlug; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getMorePosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getAllPostsWithSlug; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getAllSlider; });
 // set client
 const client = __webpack_require__("5NG/").createClient({
   space: "fz9rgtsz4j2v",
@@ -3306,6 +3381,17 @@ async function getAllPostsWithSlug() {
     select: "fields.slug"
   });
   return parsePostSlugEntries(entries, post => post.fields);
+}
+async function getAllSlider() {
+  const entries = await client.getEntries({
+    content_type: "slider" // order: "-fields.publishDate",
+
+  });
+
+  if (entries.items) {
+    return entries.items[0].fields.slider;
+  } // console.log(`Error getting Entries for ${contentType.name}.`);
+
 }
 
 /***/ }),
@@ -3459,6 +3545,13 @@ function makePublicRouterInstance(router) {
   });
   return instance;
 }
+
+/***/ }),
+
+/***/ "oL/c":
+/***/ (function(module, exports) {
+
+module.exports = require("reactstrap");
 
 /***/ }),
 

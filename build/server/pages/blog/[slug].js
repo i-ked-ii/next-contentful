@@ -633,7 +633,7 @@ var router_ = __webpack_require__("4Q3z");
 var error = __webpack_require__("eomm");
 var error_default = /*#__PURE__*/__webpack_require__.n(error);
 
-// EXTERNAL MODULE: ./components/Layouts/index.js + 3 modules
+// EXTERNAL MODULE: ./components/Layouts/index.js + 4 modules
 var Layouts = __webpack_require__("YFra");
 
 // EXTERNAL MODULE: external "moment"
@@ -838,10 +838,11 @@ function Post({
     className: "card",
     children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
       src: coverImage,
-      alt: title
+      alt: title,
+      className: "card-img-top"
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
       className: "card-body",
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("h2", {
+      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("h5", {
         children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
           className: "d-block",
           href: `/blog/${slug}`,
@@ -954,8 +955,8 @@ async function getStaticProps({
   params
 }) {
   console.log('params', params);
-  const post = await Object(lib["d" /* getPostBySlug */])(params.slug);
-  const morePosts = await Object(lib["c" /* getMorePosts */])(params.slug);
+  const post = await Object(lib["e" /* getPostBySlug */])(params.slug);
+  const morePosts = await Object(lib["d" /* getMorePosts */])(params.slug);
   return {
     props: {
       post: post ? post : null,
@@ -996,13 +997,17 @@ const Blog = ({
       className: "container-lg mt-4",
       children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
         className: "social",
-        children: ["- Share -", /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_ShareButton, {
+        children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
+          className: "mt-5 mb-5",
+          children: "Share"
+        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_ShareButton, {
           url: `https://blog-with-nextjs-and-contentful.vercel.app/blog/${post === null || post === void 0 ? void 0 : post.fields.slug}`
         })]
       }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
         className: "recent-entries",
         children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
-          children: "- Recent Entries -"
+          className: "mt-5 mb-5",
+          children: "Recent Entries"
         }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
           className: "row",
           children: morePosts === null || morePosts === void 0 ? void 0 : morePosts.map(({
@@ -1494,51 +1499,6 @@ const Footer = () => {
   return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("footer", {
     className: "jsx-751761162" + " " + "main-footer mt-4",
     children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-      className: "jsx-751761162" + " " + "bg-gray-100 text-dark-700 py-6",
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "jsx-751761162" + " " + "container",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-          className: "jsx-751761162" + " " + "row",
-          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "jsx-751761162" + " " + "service-column col-lg-4",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-              className: "jsx-751761162" + " " + "service-text",
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h6", {
-                className: "jsx-751761162" + " " + "text-uppercase",
-                children: "Free shipping & return"
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-                className: "jsx-751761162" + " " + "text-muted font-weight-light text-sm mb-0",
-                children: "Free Shipping over $300"
-              })]
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "jsx-751761162" + " " + "service-column col-lg-4",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-              className: "jsx-751761162" + " " + "service-text",
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h6", {
-                className: "jsx-751761162" + " " + "text-uppercase",
-                children: "Money back guarantee"
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-                className: "jsx-751761162" + " " + "text-muted font-weight-light text-sm mb-0",
-                children: "30 Days Money Back Guarantee"
-              })]
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "jsx-751761162" + " " + "service-column col-lg-4",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-              className: "jsx-751761162" + " " + "service-text",
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h6", {
-                className: "jsx-751761162" + " " + "text-uppercase",
-                children: "020-800-456-747"
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-                className: "jsx-751761162" + " " + "text-muted font-weight-light text-sm mb-0",
-                children: "24/7 Available Support"
-              })]
-            })
-          })]
-        })
-      })
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
       className: "jsx-751761162" + " " + "py-6 bg-gray-300 text-muted",
       children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
         className: "jsx-751761162" + " " + "container",
@@ -1754,6 +1714,67 @@ const Footer = () => {
 };
 
 /* harmony default export */ var components_Footer = (Footer);
+// CONCATENATED MODULE: ./components/Nav/index.js
+
+
+function Nav() {
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("nav", {
+    className: "navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-custom",
+    children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+      className: "container-lg",
+      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+        className: "navbar-brand",
+        href: "/",
+        children: "Navbar"
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("button", {
+        className: "navbar-toggler",
+        type: "button",
+        "data-toggle": "collapse",
+        "data-target": "#navbarNav",
+        "aria-controls": "navbarNav",
+        "aria-expanded": "false",
+        "aria-label": "Toggle navigation",
+        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
+          className: "navbar-toggler-icon"
+        })
+      }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+        className: "collapse navbar-collapse",
+        id: "navbarNav",
+        children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("ul", {
+          className: "navbar-nav mr-auto mt-2 mt-lg-0"
+        }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("ul", {
+          class: "nav navbar-nav navbar-right",
+          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
+            className: "nav-item",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
+              className: "nav-link",
+              href: "/",
+              children: ["Home ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
+                className: "sr-only",
+                children: "(current)"
+              })]
+            })
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
+            className: "nav-item",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+              className: "nav-link",
+              href: "/contents",
+              children: "Content"
+            })
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
+            className: "nav-item",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+              className: "nav-link",
+              href: "/contact",
+              children: "Contact Us"
+            })
+          })]
+        })]
+      })]
+    })
+  });
+}
+;
 // EXTERNAL MODULE: external "next/head"
 var head_ = __webpack_require__("xnum");
 var head_default = /*#__PURE__*/__webpack_require__.n(head_);
@@ -1764,6 +1785,7 @@ var head_default = /*#__PURE__*/__webpack_require__.n(head_);
 
 
 // import Header from "../Header";
+
 
 
 
@@ -1805,9 +1827,9 @@ const LayoutComponents = ({
         property: "og:description",
         content: description ? description : "This is a statically generated blog example using Next.js and Contentful.",
         className: "jsx-3591538689"
-      }, "og:description")]
+      }, "og:description"), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Nav, {})]
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("main", {
-      className: "jsx-3591538689",
+      className: "jsx-3591538689" + " " + "mt-5",
       children: children
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_Footer, {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])(style_default.a, {
       id: "3591538689",
@@ -3526,10 +3548,11 @@ module.exports = require("react-markdown");
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getAllPosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getPostsByCategory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getPostBySlug; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getMorePosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getPostsByCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getPostBySlug; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getMorePosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getAllPostsWithSlug; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getAllSlider; });
 // set client
 const client = __webpack_require__("5NG/").createClient({
   space: "fz9rgtsz4j2v",
@@ -3616,6 +3639,17 @@ async function getAllPostsWithSlug() {
     select: "fields.slug"
   });
   return parsePostSlugEntries(entries, post => post.fields);
+}
+async function getAllSlider() {
+  const entries = await client.getEntries({
+    content_type: "slider" // order: "-fields.publishDate",
+
+  });
+
+  if (entries.items) {
+    return entries.items[0].fields.slider;
+  } // console.log(`Error getting Entries for ${contentType.name}.`);
+
 }
 
 /***/ }),

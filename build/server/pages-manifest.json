@@ -4,6 +4,8 @@
   "/api/hello": "pages/api/hello.js",
   "/blog/[slug]": "pages/blog/[slug].js",
   "/categories/[slug]": "pages/categories/[slug].js",
+  "/contact": "pages/contact.html",
+  "/contents": "pages/contents.js",
   "/": "pages/index.js",
   "/_error": "pages/_error.js",
   "/404": "pages/404.html"
