@@ -6,7 +6,10 @@ export default function Nav() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-custom">
             <div className="container-lg">
                 <Link
-                    href={`${process.env.REACT_APP_BASE_PATH}/`}
+                    href={{
+                        pathname: `/`,
+                    }}
+                    as={`/`}
                 >
                     <a className="navbar-brand">Navbar</a>
                 </Link>
@@ -19,21 +22,30 @@ export default function Nav() {
                     <ul class="nav navbar-nav navbar-right">
                         <li className="nav-item">
                             <Link
-                                href={`${process.env.REACT_APP_BASE_PATH}/`}
+                                href={{
+                                    pathname: `/`,
+                                }}
+                                as={`/`}
                             >
                                 <a className="nav-link">Home <span className="sr-only">(current)</span></a>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link
-                                href={`${process.env.REACT_APP_BASE_PATH}/contents`}
+                                href={{
+                                    pathname: `/contents`,
+                                }}
+                                as={`/contents`}
                             >
                                 <a className="nav-link" >Contents <span className="sr-only">(current)</span></a>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link
-                                href={`${process.env.REACT_APP_BASE_PATH}/contact`}
+                                href={{
+                                    pathname: `/contact`,
+                                }}
+                                as={`/contact`}
                             >
                                 <a className="nav-link" >Contact Us <span className="sr-only">(current)</span></a>
                             </Link>
