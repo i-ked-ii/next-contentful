@@ -1726,7 +1726,7 @@ function Nav() {
       className: "container-lg",
       children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
         href: {
-          pathname: `/`
+          pathname: `./`
         },
         children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
           className: "navbar-brand",
@@ -1754,7 +1754,7 @@ function Nav() {
             className: "nav-item",
             children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
               href: {
-                pathname: `/`
+                pathname: `./`
               },
               children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
                 className: "nav-link",
@@ -1768,7 +1768,7 @@ function Nav() {
             className: "nav-item",
             children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
               href: {
-                pathname: `/contents`
+                pathname: `./contents`
               },
               children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
                 className: "nav-link",
@@ -1782,7 +1782,7 @@ function Nav() {
             className: "nav-item",
             children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
               href: {
-                pathname: `/contact`
+                pathname: `./contact`
               },
               children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
                 className: "nav-link",
