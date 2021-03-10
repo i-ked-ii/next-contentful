@@ -1,6 +1,6 @@
 // import Header from "../Header";
 import Footer from "../Footer";
-
+import Nav from "../Nav";
 import Head from "next/head";
 
 const LayoutComponents = ({ children, title, description, ogImage, url }) => {
@@ -43,9 +43,10 @@ const LayoutComponents = ({ children, title, description, ogImage, url }) => {
           }
           key="og:description"
         />
+        <Nav />
       </Head>
       {/* <Header /> */}
-      <main>{children}</main>
+      <main className="mt-5">{children}</main>
       <Footer />
       <style jsx global>
         {`
