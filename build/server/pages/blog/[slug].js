@@ -1725,9 +1725,7 @@ function Nav() {
     children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
       className: "container-lg",
       children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-        href: {
-          pathname: `${"/next-contentful"}/`
-        },
+        href: `${"/next-contentful"}/`,
         children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
           className: "navbar-brand",
           children: "Navbar"
@@ -1753,9 +1751,7 @@ function Nav() {
           children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
             className: "nav-item",
             children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              href: {
-                pathname: `${"/next-contentful"}/`
-              },
+              href: `${"/next-contentful"}/`,
               children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
                 className: "nav-link",
                 children: ["Home ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
@@ -1767,9 +1763,7 @@ function Nav() {
           }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
             className: "nav-item",
             children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              href: {
-                pathname: `${"/next-contentful"}/contents`
-              },
+              href: `${"/next-contentful"}/contents`,
               children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
                 className: "nav-link",
                 children: ["Contents ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
@@ -1781,9 +1775,7 @@ function Nav() {
           }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
             className: "nav-item",
             children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              href: {
-                pathname: `${"/next-contentful"}/contact`
-              },
+              href: `${"/next-contentful"}/contact`,
               children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
                 className: "nav-link",
                 children: ["Contact Us ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("span", {
