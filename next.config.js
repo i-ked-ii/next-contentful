@@ -10,17 +10,17 @@ module.exports = {
     REACT_APP_CONTENTFUL_ACCESS_TOKEN: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN || process.env.CONTENTFUL_ACCESS_TOKEN,
     REACT_APP_BASE_PATH: ''
   },
-  exportPathMap: async function (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
-    return {
-      '/': { page: '/' },
-    }
-  },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
-  // reactStrictMode: true,
-  trailingSlash: true,
+  // exportPathMap: async function (
+  //   defaultPathMap,
+  //   { dev, dir, outDir, distDir, buildId }
+  // ) {
+  //   return {
+  //     '/': { page: '/' },
+  //   }
+  // },
+  // sassOptions: {
+  //   includePaths: [path.join(__dirname, 'styles')],
+  // },
+  // // reactStrictMode: true,
+  // trailingSlash: true,
 };
