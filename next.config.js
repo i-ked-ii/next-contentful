@@ -2,8 +2,8 @@ const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 module.exports = {
   distDir: 'build',
-  basePath: '/next-contentful',
-  assetPrefix: '/next-contentful/',
+  // basePath: '/next-contentful',
+  // assetPrefix: '/next-contentful/',
   // assetPrefix: '/next-contentful/out/',
   env: {
     REACT_APP_CONTENTFUL_SPACE_ID: process.env.REACT_APP_CONTENTFUL_SPACE_ID || process.env.CONTENTFUL_SPACE_ID,
