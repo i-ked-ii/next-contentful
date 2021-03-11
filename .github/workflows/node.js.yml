@@ -33,6 +33,7 @@ jobs:
       - run: pwd
       - run: echo $REACT_APP_CONTENTFUL_ACCESS_TOKEN
       - run: echo $CHAMP
+      - run: echo $GITHUB_REPOSITORY
       - run: export CHAMP=$CHAMP
       - run: npm i
       - run: printenv
