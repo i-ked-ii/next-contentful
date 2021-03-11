@@ -34,7 +34,9 @@ jobs:
       - run: echo $REACT_APP_CONTENTFUL_ACCESS_TOKEN
       - run: echo $CHAMP
       - run: echo $GITHUB_REPOSITORY
+      - run: echo $REPO_SECRET
       - run: export CHAMP=$CHAMP
+      - run: export REPO_SECRET=$REPO_SECRET
       - run: npm i
       - run: printenv
       # - run: npm run build --if-present
