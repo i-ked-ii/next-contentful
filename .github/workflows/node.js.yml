@@ -31,6 +31,13 @@ jobs:
           echo REPO_SECRET=${{ secrets.REPO_SECRET }} >> .env
           ls -la
           cat .env
+      - name: Decrypt large secret
+        run: ./.github/scripts/decrypt_secret.sh
+      # This command is just an example to show your secret being printed
+      # Ensure you remove any print statements of your secrets. GitHub does
+      # not hide secrets that use this workaround.
+      - name: Test printing your secret (Remove this step in production)
+        run: cat $HOME/secrets/my_secret.json
       # - run: echo ${{ env.CHAMP }}
       # run: npm -v
       # run: echo $GITHUB_REPOSITORY
