@@ -30,13 +30,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: ls -la
-      - run: pwd
-      - run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
-      - run: echo "$CHAMP"
-      - run: echo $GITHUB_REPOSITORY
-      - run: echo $REPO_SECRET
-      - run: npm ci
-      - run: printenv
+        run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
+        run: echo "$CHAMP"
+        # run: echo $GITHUB_REPOSITORY
+        # run: echo $REPO_SECRET
+        # run: npm ci
+        # run: printenv
       # - run: npm run build --if-present
       # - run: npm test
