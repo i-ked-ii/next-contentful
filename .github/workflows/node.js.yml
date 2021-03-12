@@ -10,30 +10,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     env:
-      REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
-      REACT_APP_CONTENTFUL_PREVIEW_API: ${{ secrets.REACT_APP_CONTENTFUL_PREVIEW_API }}
-      REACT_APP_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
-      REPO_SECRET: ${{ secrets.REPO_SECRET }}
-      CHAMP: champ
+      NODE_VERSION: 14.x
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js $NODE_VERSION
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
-      - run: echo "$CHAMP"
-      - run: npm -v
-      - run: echo $GITHUB_REPOSITORY
-      - run: echo $REPO_SECRET >> test.md
-      - run: ls
-      - run: cat test.md
+          node-version: [$NODE_VERSION]
+      - name: Build node
+        env:
+          REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
+          REACT_APP_CONTENTFUL_PREVIEW_API: ${{ secrets.REACT_APP_CONTENTFUL_PREVIEW_API }}
+          REACT_APP_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
+          REPO_SECRET: ${{ secrets.REPO_SECRET }}
+          CHAMP: champ
+        run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
+        run: echo "$CHAMP"
+        # run: npm -v
+        # run: echo $GITHUB_REPOSITORY
+        # run: echo $REPO_SECRET >> test.md
+        # run: ls
+        # run: cat test.md
         # run: npm ci
         # run: printenv
       # - run: npm run build --if-present
