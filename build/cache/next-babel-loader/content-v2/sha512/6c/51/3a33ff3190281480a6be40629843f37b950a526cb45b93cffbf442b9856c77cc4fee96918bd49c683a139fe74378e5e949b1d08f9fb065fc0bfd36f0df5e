@@ -1,1 +1,0 @@
-{"ast":null,"code":"// add pages which you want to the array.\n// and make the file in the page folder.\nexport const routes = [{\n  name: \"Home\",\n  link: \"/\"\n}, {\n  name: \"About\",\n  link: \"/about\"\n} // { name: \"path name\", link: \"link url\" }, like this\n];","map":null,"metadata":{},"sourceType":"module"}
