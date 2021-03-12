@@ -27,6 +27,6 @@ jobs:
       - run: npm run export
       - run: echo nextjs.twinsynergy.co.th >> out/CNAME
       - run: |
-        ls out/
-        cat out/CNAME
+          ls out/
+          cat out/CNAME
       # - run: npm run deploy
