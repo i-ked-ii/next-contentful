@@ -3,6 +3,9 @@ name: Nextjs CI
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    # Build on Contentful Publish Event
+    types: [publish-event]
 
 jobs:
   deploy:
