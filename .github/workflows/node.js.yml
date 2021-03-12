@@ -32,8 +32,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: ls -la
       - run: pwd
-      - run: echo $REACT_APP_CONTENTFUL_ACCESS_TOKEN
-      - run: echo $CHAMP
+      - run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
+      - run: echo "$CHAMP"
       - run: echo $GITHUB_REPOSITORY
       - run: echo $REPO_SECRET
       - run: npm ci
