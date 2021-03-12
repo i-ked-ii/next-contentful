@@ -6,8 +6,6 @@ name: Node.js CI
 on:
   push:
     branches: [github-action]
-  pull_request:
-    branches: [main]
 
 jobs:
   build:
@@ -19,7 +17,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: "Checkout Repository"
+      - name: 'Checkout Repository'
         uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
@@ -32,15 +30,15 @@ jobs:
           REACT_APP_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
           REPO_SECRET: ${{ secrets.REPO_SECRET }}
           CHAMP: champ
-        run: ls -la
-        run: pwd
-        run: echo $REACT_APP_CONTENTFUL_ACCESS_TOKEN
-        run: echo $CHAMP
-        run: echo $GITHUB_REPOSITORY
-        run: echo $REPO_SECRET
-        run: export CHAMP=$CHAMP
-        run: export REPO_SECRET=$REPO_SECRET
-        run: npm i
-        run: printenv
+      - run: ls -la
+      - run: pwd
+      - run: echo $REACT_APP_CONTENTFUL_ACCESS_TOKEN
+      - run: echo $CHAMP
+      - run: echo $GITHUB_REPOSITORY
+      - run: echo $REPO_SECRET
+      - run: export CHAMP=$CHAMP
+      - run: export REPO_SECRET=$REPO_SECRET
+      - run: npm ci
+      - run: printenv
       # - run: npm run build --if-present
       # - run: npm test
