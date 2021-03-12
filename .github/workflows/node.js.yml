@@ -32,6 +32,8 @@ jobs:
       - run: npm -v
       - run: echo $GITHUB_REPOSITORY
       - run: echo $REPO_SECRET >> test.md
+      - run: ls
+      - run: cat test.md
         # run: npm ci
         # run: printenv
       # - run: npm run build --if-present
