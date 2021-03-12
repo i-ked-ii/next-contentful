@@ -19,13 +19,13 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
-      - name: Use Node.js $NODE_VERSION
+      - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
           node-version: 14
       - run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
       - run: echo "$CHAMP"
-      - run: echo $REPO_SECRE
+      - run: echo ${{ secrets.REPO_SECRET }}
       - run: echo ${{ env.CHAMP }}
         # run: npm -v
         # run: echo $GITHUB_REPOSITORY
