@@ -27,7 +27,8 @@ jobs:
           REPO_SECRET: ${{ secrets.REPO_SECRET }}
           CHAMP: champ
         run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
-        # run: echo "$CHAMP"
+        run: echo "$CHAMP"
+        run: echo $REPO_SECRE
         # run: npm -v
         # run: echo $GITHUB_REPOSITORY
         # run: echo $REPO_SECRET >> test.md
