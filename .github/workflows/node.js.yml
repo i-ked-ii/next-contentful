@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 
-            - $NODE_VERSION
+            - 14.x
       - name: Build node
         env:
           REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
