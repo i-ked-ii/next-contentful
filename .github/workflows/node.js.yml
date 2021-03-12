@@ -2,7 +2,7 @@ name: Nextjs CI
 
 on:
   push:
-    branches: [github-action]
+    branches: [main]
 
 jobs:
   deploy:
