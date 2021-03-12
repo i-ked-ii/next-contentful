@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean": "rimraf build/",
+    "clean": "rimraf build/ out/",
     "dev": "next dev",
     "build": "next build",
     "start": "next",
