@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     env:
-      REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
+      # REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
       REACT_APP_CONTENTFUL_PREVIEW_API: ${{ secrets.REACT_APP_CONTENTFUL_PREVIEW_API }}
       REACT_APP_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
       REPO_SECRET: ${{ secrets.REPO_SECRET }}
@@ -23,16 +23,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+        env:
+          REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
       - run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
       - run: echo "$CHAMP"
       - run: echo ${{ secrets.REPO_SECRET }}
-      - run: echo ${{ env.CHAMP }}
-        # run: npm -v
-        # run: echo $GITHUB_REPOSITORY
-        # run: echo $REPO_SECRET >> test.md
-        # run: ls
-        # run: cat test.md
-        # run: npm ci
-        # run: printenv
+      # - run: echo ${{ env.CHAMP }}
+      # run: npm -v
+      # run: echo $GITHUB_REPOSITORY
+      # run: echo $REPO_SECRET >> test.md
+      # run: ls
+      # run: cat test.md
+      # run: npm ci
+      # run: printenv
       # - run: npm run build --if-present
       # - run: npm test
