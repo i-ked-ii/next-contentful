@@ -11,14 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     env:
-      NODE_VERSION: 14.x
+      NODE_VERSION: 14
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
       - name: Use Node.js $NODE_VERSION
         uses: actions/setup-node@v1
         with:
-          node-version: [14.x]
+          node-version: 14
       - name: Build node
         env:
           REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
@@ -27,7 +27,7 @@ jobs:
           REPO_SECRET: ${{ secrets.REPO_SECRET }}
           CHAMP: champ
         run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
-        run: echo "$CHAMP"
+        # run: echo "$CHAMP"
         # run: npm -v
         # run: echo $GITHUB_REPOSITORY
         # run: echo $REPO_SECRET >> test.md
