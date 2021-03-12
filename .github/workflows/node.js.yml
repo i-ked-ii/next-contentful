@@ -5,7 +5,7 @@ on:
     branches: [github-action]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-20.04
     steps:
       - name: 'Checkout Repository'
@@ -21,12 +21,17 @@ jobs:
           echo REACT_APP_CONTENTFUL_PREVIEW_API=${{ secrets.REACT_APP_CONTENTFUL_PREVIEW_API }} >> .env
           echo REACT_APP_CONTENTFUL_SPACE_ID=${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }} >> .env
           cat .env
-      - run: npm ci
-      - run: npm run clean
-      - run: npm run build
-      - run: npm run export
-      - run: echo nextjs.twinsynergy.co.th >> out/CNAME
-      - run: |
-          ls out/
-          cat out/CNAME
-      # - run: npm run deploy
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run clean
+          npm run build
+          npm run export
+          echo nextjs.twinsynergy.co.th >> out/CNAME
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: out
+          clean: true
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
