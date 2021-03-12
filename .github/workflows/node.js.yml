@@ -25,6 +25,5 @@ jobs:
           echo REACT_APP_CONTENTFUL_SPACE_ID=${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }} >> .env
           ls -la
           cat .env
-      - name: Build
       - run: npm ci
       - run: npm run build
