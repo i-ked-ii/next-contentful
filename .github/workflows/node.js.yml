@@ -22,7 +22,11 @@ jobs:
           echo REACT_APP_CONTENTFUL_SPACE_ID=${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }} >> .env
           cat .env
       - run: npm ci
+      - run: npm run clean
       - run: npm run build
       - run: npm run export
       - run: echo nextjs.twinsynergy.co.th >> out/CNAME
-      - run: npm run deploy
+      - run: |
+        ls out/
+        cat out/CNAME
+      # - run: npm run deploy
