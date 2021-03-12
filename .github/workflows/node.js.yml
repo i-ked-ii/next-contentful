@@ -26,7 +26,7 @@ jobs:
       - run: echo "$REACT_APP_CONTENTFUL_ACCESS_TOKEN"
       - run: echo "$CHAMP"
       - run: echo $REPO_SECRE
-      - run: run: echo ${{ env.CHAMP }}
+      - run: echo ${{ env.CHAMP }}
         # run: npm -v
         # run: echo $GITHUB_REPOSITORY
         # run: echo $REPO_SECRET >> test.md
