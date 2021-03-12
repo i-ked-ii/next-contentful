@@ -10,11 +10,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    env:
-      # REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
-      REACT_APP_CONTENTFUL_PREVIEW_API: ${{ secrets.REACT_APP_CONTENTFUL_PREVIEW_API }}
-      REACT_APP_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
-      REPO_SECRET: ${{ secrets.REPO_SECRET }}
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
@@ -22,29 +17,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-        env:
-          REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
       - name: Create .env
         run: |
           touch .env
           echo REACT_APP_CONTENTFUL_ACCESS_TOKEN=${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }} >> .env
-          echo REPO_SECRET=${{ secrets.REPO_SECRET }} >> .env
+          echo REACT_APP_CONTENTFUL_PREVIEW_API=${{ secrets.REACT_APP_CONTENTFUL_PREVIEW_API }} >> .env
+          echo REACT_APP_CONTENTFUL_SPACE_ID=${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }} >> .env
           ls -la
           cat .env
-      - name: Decrypt large secret
-        run: ./.github/scripts/decrypt_secret.sh
-      # This command is just an example to show your secret being printed
-      # Ensure you remove any print statements of your secrets. GitHub does
-      # not hide secrets that use this workaround.
-      - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/my_secret.json
-      # - run: echo ${{ env.CHAMP }}
-      # run: npm -v
-      # run: echo $GITHUB_REPOSITORY
-      # run: echo $REPO_SECRET >> test.md
-      # run: ls
-      # run: cat test.md
-      # run: npm ci
-      # run: printenv
-      # - run: npm run build --if-present
-      # - run: npm test
+      - name: Build
+      - run: npm ci
+      - run: npm run build
