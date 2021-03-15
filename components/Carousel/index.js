@@ -12,9 +12,9 @@ const content = {
   },
 };
 const title = {
-  initial: { y: -20, opacity: 0 },
+  initial: { y: 20, opacity: 0, top: '50%' },
   animate: {
-    y: 0,
+    y: '-50%',
     opacity: 1,
     transition: {
       duration: 0.7,
@@ -81,7 +81,7 @@ const Carousel = (props) => {
           />
           <motion.figcaption
             variants={title}
-            className="flex flex-col w-full mb-12 text-center"
+            className=""
           >
             <Link
               href={{
