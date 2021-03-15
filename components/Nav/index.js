@@ -19,7 +19,7 @@ export default function Nav() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul className="nav navbar-nav navbar-right">
                         <li className="nav-item">
                             <Link
                                 href={{

@@ -29,13 +29,13 @@ const Example = (props) => {
         setActiveIndex(newIndex);
     }
 
-    let slides = props.data.map(({ fields }, index) => {
+    let slides = props.data.map(({ fields }) => {
         return (
 
             <CarouselItem
                 onExiting={() => setAnimating(true)}
                 onExited={() => setAnimating(false)}
-                key={index}
+                key={fields.heroImage.fields.file.url}
             >
                 <img src={fields.heroImage.fields.file.url} alt={fields.title} />
                 <CarouselCaption captionText={fields.description} captionHeader={fields.title} />
@@ -50,6 +50,7 @@ const Example = (props) => {
             next={next}
             previous={previous}
         >
+            {console.log('slides', slides.key)}
             <CarouselIndicators items={props.data} activeIndex={activeIndex} onClickHandler={goToIndex} />
             {slides}
             <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />

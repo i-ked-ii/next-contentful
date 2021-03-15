@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
-// import { ThemeProvider } from "@material-ui/core/styles";
-// import theme from "theme";
+import { AnimatePresence } from 'framer-motion';
+
+// import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../styles/globals.css"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import '../styles/globals.css';
 
 export default function MyApp(props) {
-  const { Component, pageProps } = props;
+  const { Component, pageProps, router } = props;
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -41,12 +44,10 @@ export default function MyApp(props) {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        {/* <meta name="msapplication-TileColor" content="#b91d47" /> */}
-        {/* <meta name="theme-color" content="#fafafa" /> */}
       </Head>
-      {/* <ThemeProvider theme={theme}> */}
-        <Component {...pageProps} />
-      {/* </ThemeProvider> */}
+      <AnimatePresence exitBeforeEnter>
+        <Component key={router.route} {...pageProps} />
+      </AnimatePresence>
     </React.Fragment>
   );
 }

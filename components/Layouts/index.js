@@ -1,7 +1,6 @@
-// import Header from "../Header";
-import Footer from "../Footer";
-import Nav from "../Nav";
-import Head from "next/head";
+import Head from 'next/head';
+import Footer from '../Footer';
+import Nav from '../Nav';
 
 const LayoutComponents = ({ children, title, description, ogImage, url }) => {
   // website Url
